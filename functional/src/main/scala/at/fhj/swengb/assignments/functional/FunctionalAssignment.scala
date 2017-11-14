@@ -124,7 +124,7 @@ object FunctionalAssignment {
   object MyList {
 
     def sum[Int](list: MyList[Int]): Int = {
-      
+
     }
 
     def product[Int](list: MyList[Int]): Int = ???
