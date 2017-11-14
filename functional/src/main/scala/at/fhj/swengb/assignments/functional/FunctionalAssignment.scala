@@ -110,7 +110,9 @@ object FunctionalAssignment {
     * If one sequence is shorter than the other one, the function stops at the last element
     * of the shorter sequence.
     */
-  def genPairs[A, B](as: Seq[A], bs: Seq[B]): Seq[(A, B)] = ???
+  def genPairs[A, B](as: Seq[A], bs: Seq[B]): Seq[(A, B)] = {
+      as.zip(bs)
+  }
 
   // a simple definition of a linked list, we define our own list data structure
   sealed trait MyList[+A]
@@ -123,9 +125,12 @@ object FunctionalAssignment {
   // it also provides a convenience constructor in order to instantiate a MyList without hassle
   object MyList {
 
-    def sum[Int](list: MyList[Int]): Int = {
-
+    def sum[Int](list: MyList[Int]): Int = list match {
+      case MyNil => 0
+      case Cons(head,tail) => head + sum(tail)
     }
+
+
 
     def product[Int](list: MyList[Int]): Int = ???
 
