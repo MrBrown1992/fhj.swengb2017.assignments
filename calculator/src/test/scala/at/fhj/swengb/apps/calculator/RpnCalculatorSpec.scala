@@ -2,6 +2,7 @@ package at.fhj.swengb.apps.calculator
 
 import org.scalatest.WordSpecLike
 
+
 import scala.util.{Failure, Success, Try}
 
 /**

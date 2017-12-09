@@ -1,10 +1,14 @@
 package at.fhj.swengb.apps.calculator
 
-import org.scalatest.WordSpecLike
-
+import java.nio.file.{Files, Path, Paths}
+import scala.collection.JavaConverters._
+import org.scala
 class TimesheetSpec extends WordSpecLike {
 
-  val expected =
+
+  private val filePath: Path = Paths.get("calculator/timesheet-calculator.adoc")
+
+  private val originalContent =
     """== Time expenditure: Calculator assignment
       |
       |[cols="1,1,4", options="header"]
@@ -26,6 +30,27 @@ class TimesheetSpec extends WordSpecLike {
       || 2
       || fixed bugs
       |
-      ||===
-      |""".stripMargin
+      ||===""".stripMargin
+
+  "Timesheet Spec" should {
+    "timesheet-calculator" should {
+      "file exists" in {
+        assert(Files.exists(filePath))
+      }
+      "not be the same like content" in {
+        val fileContent: Seq[String] = Files.readAllLines(filePath).asScala
+        assert(fileContent.mkString("\n") != originalContent)
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
 }
