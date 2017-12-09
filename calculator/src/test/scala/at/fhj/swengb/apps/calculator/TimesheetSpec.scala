@@ -2,7 +2,7 @@ package at.fhj.swengb.apps.calculator
 
 import java.nio.file.{Files, Path, Paths}
 import scala.collection.JavaConverters._
-import org.scala
+import org.scalaTest.WordSpecLike
 class TimesheetSpec extends WordSpecLike {
 
 
