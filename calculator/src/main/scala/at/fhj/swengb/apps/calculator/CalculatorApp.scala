@@ -73,7 +73,7 @@ class CalculatorFxController extends Initializable {
     }
     getCalculator().stack foreach println
   }
- 
+
 
 
 
