@@ -73,10 +73,7 @@ class CalculatorFxController extends Initializable {
     }
     getCalculator().stack foreach println
   }
-  @FXML var buttonMinus: Button = _
-  @FXML var buttonPlus: Button = _
-  @FXML var buttonMult: Button = _
-  @FXML var buttonDiv: Button = _
+ 
 
 
 
