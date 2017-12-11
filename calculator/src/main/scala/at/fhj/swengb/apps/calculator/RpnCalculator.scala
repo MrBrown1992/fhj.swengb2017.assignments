@@ -92,10 +92,10 @@ case class RpnCalculator(stack: List[Op] = Nil) {
     * @return
     */
   def peek(): Op = {
-    if(stack.isEmpty)
-      throw new NoSuchElementException
-    else
+    if(stack.nonEmpty)
       stack.head
+    else
+      throw new NoSuchElementException
   }
 
   /**
