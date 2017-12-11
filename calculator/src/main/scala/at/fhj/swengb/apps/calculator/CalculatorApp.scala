@@ -6,8 +6,11 @@ import javafx.application.Application
 import javafx.beans.property.{ObjectProperty, SimpleObjectProperty}
 import javafx.fxml.{FXML, FXMLLoader, Initializable}
 import javafx.scene.control.TextField
+import javafx.scene.control.Button
 import javafx.scene.{Parent, Scene}
 import javafx.stage.Stage
+import javafx.event.ActionEvent
+
 
 import scala.util.{Failure, Success}
 import scala.util.control.NonFatal
@@ -35,6 +38,7 @@ class CalculatorFX extends javafx.application.Application {
       stage.show()
       stage.setMinWidth(stage.getWidth)
       stage.setMinHeight(stage.getHeight)
+      stage.setResizable(false)
     } catch {
       case NonFatal(e) => e.printStackTrace()
     }
@@ -69,6 +73,17 @@ class CalculatorFxController extends Initializable {
     }
     getCalculator().stack foreach println
   }
+  @FXML var buttonMinus: Button = _
+  @FXML var buttonPlus: Button = _
+  @FXML var buttonMult: Button = _
+  @FXML var buttonDiv: Button = _
+
+
+
+
+
+
+
 
 
 }
