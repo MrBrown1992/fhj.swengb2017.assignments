@@ -47,12 +47,12 @@ case class RpnCalculator(stack: List[Op] = Nil) {
     */
   def push(op: Op): Try[RpnCalculator] = {
     op match {
-      case v : Val => Try(RpnCalculator(stack :+ v))
-      case o : BinOp => try{
+      case value : Val => Try(RpnCalculator(stack :+ value))
+      case operation : BinOp => try{
         def getTheNextValue(RevCalculator :RpnCalculator): Val = {
           def actualVal = RevCalculator.peek()
           actualVal match {
-            case v :Val => v
+            case value :Val => value
             case _: BinOp => throw new NoSuchElementException
           }
         }
@@ -60,7 +60,7 @@ case class RpnCalculator(stack: List[Op] = Nil) {
         var remainCalc = pop()._2
         val Val2 = getTheNextValue(remainCalc)
         remainCalc = remainCalc.pop()._2
-        val result: Val = o.eval(Val1, Val2)
+        val result: Val = operation.eval(Val1, Val2)
         remainCalc.push(result)
 
       }catch {

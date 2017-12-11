@@ -6,17 +6,22 @@
 | Date
 | Hours
 | Description
-
 | 29.11.17
 | 1
-| Review of this and that
-
+| Review requirement document and code
+| 29.11.17
+| 3
+| started designing a Gui
 | 30.11.17
-| 5
-| implemented css
-
-| 11.07.17
 | 2
-| fixed bugs
-
+| started making css settings
+| 01.12.17
+| 9
+| coding the rpncalc
+| 03.12.17
+| 5
+| coding rpn operations
+| 05.12.17
+| 4
+| bug fixing and clean up
 |===
