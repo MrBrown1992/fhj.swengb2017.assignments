@@ -6,19 +6,8 @@ package at.fhj.swengb.apps.battleship.model
 case class BattleShipGame(battleField: BattleField,
                           getCellWidth: Int => Double,
                           getCellHeight: Int => Double,
+                          upSlider: Int => Unit,
                           log: String => Unit) {
-
-  /**
-    * remembers which vessel was hit at which position
-    * starts with the empty map, meaning that no vessel was hit yet.
-    *
-    **/
-  var hits: Map[Vessel, Set[BattlePos]] = Map()
-
-  /**
-    * contains all vessels which are destroyed
-    */
-  var sunkShips: Set[Vessel] = Set()
 
   /**
     * We don't ever change cells, they should be initialized only once.
@@ -31,11 +20,35 @@ case class BattleShipGame(battleField: BattleField,
       getCellHeight(y),
       log,
       battleField.fleet.findByPos(pos),
-      updateGameState)
+      updateGameState,
+      updateClickedPos)
+  }
+  /**
+    * remembers which vessel was hit at which position
+    * starts with the empty map, meaning that no vessel was hit yet.
+    *
+    **/
+  var hits: Map[Vessel, Set[BattlePos]] = Map()
+  /**
+    * contains all vessels which are destroyed
+    */
+  var sunkShips: Set[Vessel] = Set()
+  var clickedPos: List[BattlePos] = List()
+
+  def updateClickedPos(pos: BattlePos): Unit = {
+    clickedPos = pos :: clickedPos
+    upSlider(clickedPos.size)
   }
 
   def getCells(): Seq[BattleFxCell] = cells
 
+  def simulateClicks(pos: List[BattlePos]): Unit = {
+    for (p <- pos) {
+      val cell: BattleFxCell = cells.filter(e => e.pos.equals(p)).head
+      cell.clickMouse()
+    }
+
+  }
 
   def updateGameState(vessel: Vessel, pos: BattlePos): Unit = {
     log("Vessel " + vessel.name.value + " was hit at position " + pos)
@@ -68,7 +81,7 @@ case class BattleShipGame(battleField: BattleField,
         sunkShips = sunkShips + vessel
 
         if (battleField.fleet.vessels == sunkShips) {
-          log("G A M E   totally  O V E R")
+          log("G A M E  totally  O V E R")
         }
       }
 

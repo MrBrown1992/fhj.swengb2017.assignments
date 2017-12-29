@@ -5,7 +5,15 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.{Parent, Scene}
 import javafx.stage.Stage
 
+
 import scala.util.{Failure, Success, Try}
+
+
+import javafx.scene.media.Media
+import javafx.scene.media.MediaPlayer
+import java.io.File
+import java.net.URL
+
 
 object BattleShipFxApp {
 
@@ -18,8 +26,15 @@ object BattleShipFxApp {
 
 class BattleShipFxApp extends Application {
 
-  val triedRoot = Try(FXMLLoader.load[Parent](getClass.getResource("/at/fhj/swengb/apps/battleship/jfx/battleshipfx.fxml")))
+  final URL resource = getClass().getResource("a.mp3")
+  final Media media = new Media(resource.toString())
+  final MediaPlayer mediaPlayer = new MediaPlayer(media)
+  mediaPlayer.play()
 
+
+
+  val triedRoot = Try(FXMLLoader.load[Parent](getClass.getResource("/at/fhj/swengb/apps/battleship/jfx/battleshipfx.fxml")))
+  val css = "/at/fhj/swengb/apps/battleship/jfx/style.css"
   override def start(stage: Stage) = {
     triedRoot match {
       case Success(root) =>

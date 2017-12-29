@@ -11,7 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="540.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhj.swengb.apps.battleship.jfx.BattleShipFxController">
+
+<BorderPane prefHeight="540.0" prefWidth="752.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhj.swengb.apps.battleship.jfx.BattleShipFxController">
     <right>
 
 
@@ -33,7 +34,7 @@
         </VBox>
     </right>
     <center>
-        <GridPane fx:id="battleGroundGridPane" alignment="CENTER" hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
+        <GridPane fx:id="battleGroundGridPane" alignment="CENTER" hgap="5.0" styleClass="bg_water" stylesheets="@style.css" vgap="5.0" BorderPane.alignment="CENTER">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />

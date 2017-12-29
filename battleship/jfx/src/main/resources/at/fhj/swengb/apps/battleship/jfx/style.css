@@ -1,0 +1,7 @@
+
+
+
+.bg_water {
+    -fx-background-image:url(water.jpg);
+    -fx-background-size:cover;
+}

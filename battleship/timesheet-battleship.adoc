@@ -9,22 +9,39 @@
 | Actual Hours
 | Description
 
-| Arneitzj15
+| spiessni15
 | 29.11.17
 | 2
-| 1
+| 0.5
 | Review of this and that
 
-| Arneitzj15
+| spiessni15
 | 30.11.17
+| 2
+| 6
+|  css
+
+| spiessni15
+| 12.12.17
+| 9
+| 13
+| coding
+
+| spiessni15
+| 15.12.17
 | 1
-| 5
-| implemented css
+| 3
+| bugfixes
 
-| Heiderst16
-| 11.07.17
+| spiessni15
+| 20.12.17
 | 2
-| 2
-| fixed bugs
+| 3
+| testing
 
+| spiessni15
+| 29.07.17
+| ?
+| 7
+| going crazy...
 |===
